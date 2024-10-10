@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom/client";
-const pizzaData = [
+const PizzaData = [
   {
     name: "Focaccia",
     ingredients: "Bread with italian olive oil and rosemary",
@@ -77,19 +78,16 @@ function Menu() {
 }
 
 function Footer() {
-    const hour = new Date().getHours();
-    const openhour = 9;
-    const closehour = 22;
-    const storehour = hour>=openhour && hour<= closehour;
-    console.log(storehour);
-    // if(storehour)
-    // alert("we're currently open");
-    // else alert("Really apologie man. That's sleepy time.");
+    
+  const hour = new Date().getHours();
+  const openhour = 9;
+  const closehour = 22;
+  const storehour = hour >= openhour && hour <= closehour;
+  console.log(storehour);
+
   return (
     <div>
-      <footer>
-        {hour} We're Currently Opened!!!.
-      </footer>
+      <footer>{hour} We're Currently Opened!!!.</footer>
     </div>
   );
 }
