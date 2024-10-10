@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom/client";
+import './index.css';
 const PizzaData = [
   {
     name: "Focaccia",
@@ -48,7 +49,7 @@ const PizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -57,16 +58,17 @@ function App() {
 }
 
 function Header() {
+  const headerstyle={};
   return (
-    <>
-      <h1>Chef Heng's Pazzy</h1>
-    </>
+    <header className="header">
+      <h1 style={headerstyle}>Chef Heng's Pazzy</h1>
+    </header>
   );
 }
 
 function Menu() {
   return (
-    <div>
+    <div className="menu">
       <h2>Our Menu</h2>
       <Pizza />
       <Pizza />
@@ -86,7 +88,7 @@ function Footer() {
   console.log(storehour);
 
   return (
-    <div>
+    <div className="footer">
       <footer>{hour} We're Currently Opened!!!.</footer>
     </div>
   );
