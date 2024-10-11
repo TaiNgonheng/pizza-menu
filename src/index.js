@@ -90,7 +90,10 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
+function Pizza(props) { 
+  if(props.pizzaObj.soldOut) 
+    return null;
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -107,21 +110,33 @@ function Pizza(props) {
 function Footer() {
 
   const hour = new Date().getHours();
-  const openhour = 9;
+  const openhour = 8;
   const closehour = 22;
   const storehour = hour >= openhour && hour <= closehour;
   console.log(storehour);
+
+  if(!storehour)
+    return(
+      <h1>Closed.</h1>
+    );
+  
   return(
     <footer className="order">
-      {storehour &&(
-        <div className="order">
-          <h3>
-             We're Open Until {closehour}:00. Come visit use or order online.
-          </h3>
-          <button className="btn">Order</button>
-        </div>
+      {storehour?(
+        <Order closehour={closehour} />
+
+      ):(
+        <h2>We're happy to welcome you between {openhour}:00 and {closehour}:00.</h2>
       )}
     </footer>
+  );
+}
+
+function Order(props){
+  return(
+    <div className="order">
+      <p>We're Open until {props.closehour}:00</p>
+    </div>
   );
 }
 
